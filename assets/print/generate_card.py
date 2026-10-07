@@ -277,6 +277,7 @@ def build_side_a():
 
 # ================================================================ SIDE B
 def build_side_b():
+    global QR_BOX_MM
     img = Image.new("RGBA", (CANVAS_W, CANVAS_H), CREAM + (255,))
     d = ImageDraw.Draw(img)
 
