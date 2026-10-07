@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#051021">
+<title>کتابخانهٔ نیمه‌شب — تحلیل روان‌شناختی | پیش‌نمایش</title>
+<meta name="description" content="تحلیل روان‌شناختی کتابخانهٔ نیمه‌شب با نگاه طرحواره‌درمانی؛ یک شب تصمیم است، هفت شب الگو.">
+<link rel="preload" href="../fonts/Vazirmatn-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/Vazirmatn-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face{font-family:Vazirmatn;src:url("fonts/Vazirmatn-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+  @font-face{font-family:Vazirmatn;src:url("fonts/Vazirmatn-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+  @font-face{font-family:Vazirmatn;src:url("fonts/Vazirmatn-SemiBold.woff2") format("woff2");font-weight:600;font-display:swap}
+  @font-face{font-family:Vazirmatn;src:url("fonts/Vazirmatn-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+
+  :root{
+    --navy:#051021; --navy-2:#0B1B30; --navy-3:#122745;
+    --gold:#C8A46A; --gold-bright:#E4C994; --gold-dim:rgba(200,164,106,.35);
+    --cream:#FBF7F1; --paper:#FFFFFF; --ink:#1A212E; --ink-soft:#646E7E;
+    --line:#E7E1D7; --purple:#7C5CD6;
+    --r:18px; --pad:20px; --maxw:640px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:Vazirmatn,system-ui,-apple-system,"Segoe UI",sans-serif;
+    background:var(--cream); color:var(--ink);
+    line-height:1.9; font-size:16.5px;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+  h1,h2,h3{line-height:1.55;margin:0;font-weight:700}
+  p{margin:0}
+
+  /* نوار پیش‌نمایش */
+  .devbar{
+    background:linear-gradient(90deg,var(--gold),var(--gold-bright));
+    color:#2a1f0d;font-size:12.5px;font-weight:600;text-align:center;
+    padding:7px 14px;letter-spacing:.2px
+  }
+
+  /* ---------- قهرمان ---------- */
+  header.hero{
+    background:
+      radial-gradient(120% 90% at 78% 0%,rgba(200,164,106,.28),transparent 52%),
+      radial-gradient(90% 70% at 10% 100%,rgba(124,92,214,.16),transparent 60%),
+      linear-gradient(180deg,var(--navy),#081729 70%,#0A1B2F);
+    color:var(--cream);padding:26px 0 30px;position:relative;overflow:hidden
+  }
+  header.hero::after{
+    content:"";position:absolute;inset:auto 0 0 0;height:120px;
+    background:linear-gradient(180deg,transparent,rgba(5,16,33,.9));pointer-events:none
+  }
+  .kick{display:flex;gap:10px;align-items:center;justify-content:center;
+    font-size:12.5px;letter-spacing:.4px;color:var(--gold);font-weight:600}
+  .kick span.dot{width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.7}
+  h1.title{font-size:30px;text-align:center;margin-top:16px;letter-spacing:-.2px}
+  h1.title em{font-style:normal;color:var(--gold-bright);display:block}
+  .sub{text-align:center;color:rgba(251,247,241,.72);font-size:14.5px;margin-top:12px}
+
+  /* قفسهٔ تزئینی */
+  .shelf{height:74px;margin:22px auto 0;max-width:520px;position:relative;opacity:.95}
+  .shelf i{position:absolute;bottom:14px;border-radius:3px;background:var(--navy-3)}
+  .shelf i.warm{background:#2B486F}
+  .shelf i.gold{background:var(--gold-bright);box-shadow:0 0 26px 8px rgba(228,201,148,.35)}
+  .shelf b{position:absolute;left:0;right:0;bottom:11px;height:2px;background:var(--gold-dim)}
+
+  /* پخش‌کننده */
+  .player{
+    margin:24px auto 6px;background:rgba(255,255,255,.06);border:1px solid rgba(200,164,106,.32);
+    border-radius:var(--r);padding:16px;backdrop-filter:blur(6px);position:relative;z-index:2
+  }
+  .player .row{display:flex;align-items:center;gap:14px}
+  button.play{
+    width:56px;height:56px;flex:0 0 56px;border-radius:50%;border:0;cursor:pointer;
+    background:linear-gradient(160deg,var(--gold-bright),var(--gold));
+    color:#241a08;display:grid;place-items:center;box-shadow:0 8px 26px rgba(200,164,106,.35);
+    transition:transform .15s ease
+  }
+  button.play:active{transform:scale(.95)}
+  button.play svg{width:22px;height:22px}
+  .pmeta{flex:1;min-width:0}
+  .pmeta b{display:block;font-weight:600;font-size:15.5px;color:var(--cream)}
+  .pmeta small{color:rgba(251,247,241,.6);font-size:12.5px}
+  .bar{height:4px;border-radius:4px;background:rgba(255,255,255,.16);margin-top:12px;overflow:hidden}
+  .bar i{display:block;height:100%;width:0;background:var(--gold-bright);transition:width .2s linear}
+  .tline{display:flex;justify-content:space-between;font-size:11.5px;color:rgba(251,247,241,.55);margin-top:7px}
+  .note{font-size:12px;color:rgba(251,247,241,.5);margin-top:9px;text-align:center}
+
+  /* ---------- بخش‌ها ---------- */
+  section{padding:34px 0}
+  section.tight{padding:24px 0}
+  .eyebrow{font-size:12.5px;font-weight:600;color:var(--gold);letter-spacing:.4px;margin-bottom:10px}
+  section h2{font-size:21px;margin-bottom:12px}
+  .lead{color:var(--ink-soft);font-size:15.5px}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+  .stack{display:grid;gap:12px;margin-top:16px}
+
+  .story{position:relative;padding-right:22px}
+  .story::before{content:"";position:absolute;right:6px;top:10px;bottom:6px;width:2px;
+    background:linear-gradient(180deg,var(--gold-dim),transparent)}
+  .story h3{font-size:16.5px;margin-bottom:6px}
+  .story p{color:var(--ink-soft);font-size:14.5px}
+
+  .schema h3{font-size:17px;display:flex;align-items:center;gap:9px}
+  .schema h3::before{content:"";width:9px;height:9px;border-radius:50%;
+    background:var(--gold);flex:0 0 9px;}
+  .schema dl{margin:12px 0 0;display:grid;gap:9px}
+  .schema dt{font-size:12.5px;color:var(--ink-soft)}
+  .schema dd{margin:2px 0 0;font-size:15px}
+  .honest{margin-top:14px;font-size:12.5px;color:var(--ink-soft);
+    background:#FFF9EE;border:1px dashed var(--gold-dim);border-radius:14px;padding:11px 13px}
+
+  .chain{display:grid;gap:8px;margin-top:14px}
+  .chain div{background:var(--paper);border:1px solid var(--line);border-radius:14px;
+    padding:12px 14px;font-size:14.5px;display:flex;gap:10px;align-items:center}
+  .chain div span{width:26px;height:26px;border-radius:50%;background:#F4EFE6;color:var(--gold);
+    display:grid;place-items:center;font-size:12.5px;font-weight:700;flex:0 0 26px}
+
+  /* خودتأملی */
+  .reflect{background:linear-gradient(180deg,#0A1A2E,#071426);color:var(--cream);
+    border-radius:22px;padding:22px 18px;margin-top:8px}
+  .reflect h2{color:var(--cream)}
+  .q{margin-top:14px;font-size:15.5px;color:rgba(251,247,241,.9);
+    padding-right:16px;position:relative}
+  .q::before{content:"؟";position:absolute;right:0;color:var(--gold);font-weight:700}
+
+  /* هفت شب */
+  .nights{display:flex;gap:10px;justify-content:center;margin:18px 0 6px;flex-wrap:wrap}
+  .nights button{width:44px;height:44px;border-radius:50%;border:2px solid var(--line);
+    background:var(--paper);color:var(--ink-soft);font:inherit;font-weight:600;cursor:pointer}
+  .nights button.on{border-color:var(--gold);background:#FFF7E8;color:var(--ink);}
+  .nights button:disabled{cursor:default}
+  .counter{text-align:center;font-size:13.5px;color:var(--ink-soft)}
+  .counter b{color:var(--ink)}
+
+  /* پل به جوما */
+  .bridge{background:var(--paper);border:1px solid var(--line);border-radius:22px;
+    padding:22px 18px;margin-top:8px;position:relative;overflow:hidden}
+  .bridge::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;
+    background:linear-gradient(180deg,var(--purple),var(--gold))}
+  .bridge p{font-size:15.5px}
+  .cta{display:inline-flex;align-items:center;gap:8px;margin-top:16px;
+    border:1.5px solid var(--purple);color:var(--purple);background:#F7F4FF;
+    border-radius:14px;padding:12px 18px;font-weight:600;font-size:15px;
+    text-decoration:none;cursor:not-allowed;opacity:.85}
+  .cta small{color:var(--ink-soft);font-weight:400;font-size:12px}
+  .placeholder{font-size:12px;color:var(--ink-soft);margin-top:10px;
+    border-top:1px dashed var(--line);padding-top:10px}
+
+  /* برند */
+  .brand{display:flex;gap:14px;align-items:center;margin-top:8px}
+  .brand img{width:84px;height:84px;border-radius:50%;object-fit:cover;border:2px solid var(--gold-dim)}
+  .brand b{display:block;font-size:16px}
+  .brand small{color:var(--ink-soft);font-size:13.5px;display:block;margin-top:3px;line-height:1.8}
+
+  /* فوتر */
+  footer{background:var(--navy);color:rgba(251,247,241,.75);padding:26px 0 34px;margin-top:22px}
+  footer .warn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+    border-radius:14px;padding:13px 14px;font-size:13.5px;line-height:1.9}
+  footer .warn b{color:var(--gold-bright)}
+  footer .tiny{font-size:12px;color:rgba(251,247,241,.45);margin-top:16px;text-align:center}
+</style>
+</head>
+<body>
+
+<div class="devbar">پیش‌نمایش صفحهٔ دیجیتال — بدون نشانی/QR/لینک واقعی و همهٔ متن‌ها پیش‌نویسِ تأییدنشده‌اند.</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kick">
+      <span>تحلیل روان‌شناختی</span><span class="dot"></span>
+      <span>طرحواره‌درمانی</span><span class="dot"></span><span>جلسهٔ ۰۱</span>
+    </div>
+
+    <h1 class="title">کتابخانهٔ نیمه‌شب <em>یک شب، تصمیم است؛ هفت شب، الگو.</em></h1>
+    <p class="sub">نورا سید میلیون‌ها زندگی را امتحان کرد تا بفهمد مسئله، انتخاب‌ها نبود؛ الگویی بود که با خودش می‌برد.</p>
+
+    <div class="shelf" id="shelf" aria-hidden="true"><b></b></div>
+
+    <div class="player">
+      <div class="row">
+        <button class="play" id="playBtn" aria-label="پخش تحلیل صوتی">
+          <svg viewBox="0 0 24 24" fill="currentColor" id="playIcon"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <div class="pmeta">
+          <b>۷ دقیقه تحلیل صوتی</b>
+          <small>جواد میربلوکی · پیشنهاد: پیش از خواب</small>
+        </div>
+      </div>
+      <div class="bar"><i id="progress"></i></div>
+      <div class="tline"><span id="cur">۰:۰۰</span><span id="dur">۷:۳۵</span></div>
+      <div class="note">توجه: متنِ کامل صدا (Transcript) پس از تأیید شما اینجا منتشر می‌شود.</div>
+      <audio id="audio" preload="none">
+        <source src="../media/narration-7min.webm" type="audio/webm; codecs=opus">
+        <source src="../media/narration-7min.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="wrap">
+    <div class="eyebrow">نورا</div>
+    <h2>سه لحظه از داستان</h2>
+    <div class="stack">
+      <div class="story card">
+        <h3>لحظهٔ اول — فهرستِ «اگر»ها</h3>
+        <p>کارش را از دست می‌دهد، گربه‌اش می‌میرد، رابطه‌هایش کم‌رنگ می‌شوند. کم‌کم جمله تغییر می‌کند: از «یک تصمیم را اشتباه گرفتم» به «من همیشه اشتباه می‌کنم».</p>
+      </div>
+      <div class="story card">
+        <h3>لحظهٔ دوم — کتابخانه</h3>
+        <p>بین مرگ و زندگی، جایی هست که هر کتابش یک زندگیِ نگرفته است. نورا زندگی‌ها را امتحان می‌کند: ازدواج، قهرمانی، موسیقی، مهاجرت.</p>
+      </div>
+      <div class="story card">
+        <h3>لحظهٔ سوم — نورا باز هم نوراست</h3>
+        <p>شرایط عوض می‌شود، اما ترس‌ها، احساس ناکافی‌بودن و پشیمانی‌ها با او می‌آیند. اینجا سؤال اصلی کتاب متولد می‌شود: اگر همهٔ شرایط را عوض کنیم، آیا حالِ ما هم عوض می‌شود؟</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="eyebrow">سه الگو</div>
+    <h2>آن‌چه نورا با خودش برد</h2>
+    <p class="lead">این‌ها تنها الگوهایی هستند که در تحلیل این جلسه مطرح می‌شوند — بدون هیچ تشخیص قطعی.</p>
+    <div class="stack">
+      <div class="card schema">
+        <h3>شکست</h3>
+        <dl>
+          <dt>در داستان می‌بینیم</dt><dd>«من در بعضی کارها شکست خوردم» کم‌کم تبدیل می‌شود به «من آدم شکست‌خورده‌ای هستم».</dd>
+          <dt>یک سؤال برای تو</dt><dd>آخرین بار کِی یک شکست را به «هویت» خودت گره زدی؟</dd>
+        </dl>
+      </div>
+      <div class="card schema">
+        <h3>نقص و شرم</h3>
+        <dl>
+          <dt>در داستان می‌بینیم</dt><dd>مسئله فقط «اشتباه کردم» نیست؛ این حس است که «چیزی در خودِ من ایراد دارد».</dd>
+          <dt>یک سؤال برای تو</dt><dd>وقتی کسی از تو انتقاد می‌کند، اول چه جمله‌ای در دلت می‌گویی؟</dd>
+        </dl>
+      </div>
+      <div class="card schema">
+        <h3>اطاعت</h3>
+        <dl>
+          <dt>در داستان می‌بینیم</dt><dd>نورا بارها بر اساس خواستهٔ دیگران تصمیم می‌گیرد؛ تا جایی که خودش هم نمی‌داند واقعاً چه می‌خواهد.</dd>
+          <dt>یک سؤال برای تو</dt><dd>آخرین تصمیم مهمی که فقط برای خودت گرفتی، چه بود؟</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="honest">این‌ها خوانشِ داستانی‌اند، نه تشخیص. الگوها فقط با گفت‌وگوی تخصصی و ابزارهای معتبر قابل ارزیابی‌اند.</div>
+  </section>
+
+  <section class="wrap">
+    <div class="eyebrow">مکانیزم</div>
+    <h2>الگو چطور فعال می‌شود؟</h2>
+    <p class="lead">شناختن اسمِ یک الگو، پایان کار نیست؛ شروع کار است. آن‌چه اهمیت دارد، این زنجیره است:</p>
+    <div class="chain">
+      <div><span>۱</span> موقعیتی که پیش می‌آید</div>
+      <div><span>۲</span> فکری که بلافاصله به ذهن می‌آید</div>
+      <div><span>۳</span> احساسی که همان لحظه شکل می‌گیرد</div>
+      <div><span>۴</span> رفتاری که بعد از آن انجام می‌دهیم</div>
+    </div>
+    <p class="lead" style="margin-top:14px">اگر همین چهار قدم را چند شب ثبت کنی، به‌جای «یک روز»، <b>الگو</b> را می‌بینی.</p>
+  </section>
+
+  <section class="wrap">
+    <div class="reflect">
+      <div class="eyebrow" style="color:var(--gold)">تأمل</div>
+      <h2>سه سؤال، بدون عجله</h2>
+      <p class="q">شبِ گذشته، کدام جمله را بیشتر با خودت تکرار کردی: «اشتباه کردم» یا «من اشتباه‌ام»؟</p>
+      <p class="q">کدام انتقادِ کوچک، بیش از اندازه به تو برخورد؟</p>
+      <p class="q">اگر هیچ‌کس قضاوتت نمی‌کرد، امروز چه تصمیمی می‌گرفتی؟</p>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="eyebrow">هفت شب</div>
+    <h2>هفت شب، یک خط</h2>
+    <p class="lead">پشت کارت، هفت خانه هست: هر شب یک کار کوچک، یک حال از پنج، و یک واژه. این فقط یک نمونهٔ کارکرد است — در نسخهٔ نهایی، همان کارت کاغذی همراه توست.</p>
+    <div class="nights" id="nights" role="group" aria-label="هفت شب"></div>
+    <p class="counter" id="counter">هیچ شبی ثبت نشده است.</p>
+    <div class="honest">این ابزار، سنجش یا درمان نیست. «هفت شب» فقط برای دیدنِ تکرارهاست — و اگر هیچ الگویی هم ندیدی، همین یک دادهٔ ارزشمند است.</div>
+  </section>
+
+  <section class="wrap">
+    <div class="eyebrow">ادامه</div>
+    <h2>از کتابخانه، تا زندگی روزمره</h2>
+    <div class="bridge">
+      <p>یک شب، فقط یک تصمیم را نشان می‌دهد. الگو در چند شب دیده می‌شود — و مسیر، در چند هفته.</p>
+      <p style="margin-top:10px;color:var(--ink-soft)">جوما جای روان‌شناس را نمی‌گیرد؛ فقط کمک می‌کند به‌جای دیدنِ یک روز، الگوهای طول زمان را ببینیم.</p>
+      <a class="cta" aria-disabled="true">تمرین‌های طرحواره‌درمانی <small>(جای لینک — پس از تأیید شما)</small></a>
+      <p class="placeholder">مقصد پیشنهادی: صفحهٔ «تمرین‌های تخصصی طرحواره‌درمانی» در جوما (۲۷ تمرین). من هیچ نشانی را بدون تأیید شما استفاده نمی‌کنم.</p>
+    </div>
+  </section>
+
+  <section class="wrap tight">
+    <div class="eyebrow">دربارهٔ تحلیل‌کننده</div>
+    <div class="card brand">
+      <img src="../brand/portrait-placeholder.svg" alt="جای پرتره">
+      <div>
+        <b>جواد میربلوکی</b>
+        <small>روان‌شناس، زوج‌درمانگر و مشاور تخصصی روابط<br>
+        «رابطه‌ها به بن‌بست نمی‌رسند؛ فقط گاهی راهِ دوباره دیدنِ هم را گم می‌کنند.»</small>
+      </div>
+    </div>
+    <p class="placeholder">جای پرتره: پس از اجازهٔ شما، عکس رسمی در اینجا قرار می‌گیرد. (لینک سایت، خدمات و صفحهٔ تحلیل فیلم هم پس از تأیید اضافه می‌شود.)</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="warn">
+      <b>اگر حالِ تو خوب نیست:</b> این صفحه یک تحلیل فرهنگی است، نه درمان. اگر فکر آسیب به خودت داری یا حالِ خوبی نداری، همین حالا با اورژانس اجتماعی <b>۱۲۳</b> یا خط مشاورهٔ <b>۱۴۸۰</b> تماس بگیر.
+    </div>
+    <p class="tiny">پیش‌نمایش داخلی · هیچ داده‌ای در این صفحه ذخیره یا ارسال نمی‌شود · ۱۴۰۵</p>
+  </div>
+</footer>
+
+<script>
+/* ---------- قفسهٔ تزئینی ---------- */
+(function(){
+  const s=document.getElementById('shelf'); if(!s) return;
+  s.style.position='relative';
+  const widths=[16,12,22,14,18,11,24,15,13,20,16,12,19,14];
+  let x=0; widths.forEach((w,i)=>{
+    const b=document.createElement('i');
+    const h=26+((i*37)%26);
+    b.style.width=w+'px'; b.style.height=h+'px'; b.style.right=x+'px';
+    if(i===6){b.className='gold'; b.style.height='46px';}
+    else if(i%5===0){b.className='warm';}
+    s.appendChild(b); x+=w+4+((i*7)%4);
+  });
+})();
+
+/* ---------- پخش‌کننده ---------- */
+(function(){
+  const a=document.getElementById('audio'), btn=document.getElementById('playBtn'),
+        ic=document.getElementById('playIcon'), pr=document.getElementById('progress'),
+        cur=document.getElementById('cur'), dur=document.getElementById('dur');
+  let ready=false;
+  const fmt=s=>{s=Math.max(0,Math.floor(s||0));return (Math.floor(s/60))+':'+String(s%60).padStart(2,'0');};
+  a.addEventListener('loadedmetadata',()=>{dur.textContent=fmt(a.duration);});
+  btn.addEventListener('click',()=>{
+    if(a.paused){
+      if(!ready){ a.load(); ready=true; }
+      a.play().catch(()=>{});
+    } else { a.pause(); }
+  });
+  a.addEventListener('play',()=>{ic.innerHTML='<path d="M6 5h4v14H6zM14 5h4v14h-4z"/>';});
+  a.addEventListener('pause',()=>{ic.innerHTML='<path d="M8 5v14l11-7z"/>';});
+  a.addEventListener('timeupdate',()=>{
+    cur.textContent=fmt(a.currentTime);
+    if(a.duration) pr.style.width=(a.currentTime/a.duration*100)+'%';
+  });
+  a.addEventListener('ended',()=>{ic.innerHTML='<path d="M8 5v14l11-7z"/>';});
+})();
+
+/* ---------- هفت شب (نمونه، بدون ذخیره‌سازی) ---------- */
+(function(){
+  const box=document.getElementById('nights'), c=document.getElementById('counter');
+  const digits='۱۲۳۴۵۶۷';
+  for(let i=0;i<7;i++){
+    const b=document.createElement('button');
+    b.textContent=digits[i]; b.setAttribute('aria-pressed','false');
+    b.onclick=()=>{
+      b.classList.toggle('on');
+      b.setAttribute('aria-pressed', b.classList.contains('on')?'true':'false');
+      const n=box.querySelectorAll('.on').length;
+      c.innerHTML = n===0 ? 'هیچ شبی ثبت نشده است.'
+        : (n<7 ? '<b>'+digits[n-1]+'</b> شب از هفت شب ثبت شده است.'
+               : 'هر هفت شب ثبت شد — حالا هفت خط را کنار هم بگذار.');
+    };
+    box.appendChild(b);
+  }
+  const b0=box.querySelector('button'); if(b0) b0.classList.add('current');
+})();
+</script>
+</body>
+</html>

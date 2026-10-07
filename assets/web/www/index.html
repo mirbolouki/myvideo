@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>پیش‌نمایش کامل پروژه — کارت کتابخانهٔ نیمه‌شب</title>
+<link rel="preload" href="fonts/Vazirmatn-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Vazirmatn-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face{font-family:Vazirmatn;src:url("fonts/Vazirmatn-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+  @font-face{font-family:Vazirmatn;src:url("fonts/Vazirmatn-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+  @font-face{font-family:Vazirmatn;src:url("fonts/Vazirmatn-SemiBold.woff2") format("woff2");font-weight:600;font-display:swap}
+  @font-face{font-family:Vazirmatn;src:url("fonts/Vazirmatn-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+  :root{--navy:#051021;--navy2:#0B1B30;--gold:#C8A46A;--goldb:#E4C994;--cream:#FBF7F1;
+        --ink:#1A212E;--soft:#65707F;--line:#E7E1D7;--purple:#7C5CD6;--r:20px}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:Vazirmatn,system-ui,sans-serif;
+       line-height:1.9;font-size:16px;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  .bar{background:linear-gradient(90deg,var(--gold),var(--goldb));color:#2b2009;font-size:13px;
+       font-weight:600;text-align:center;padding:8px 14px}
+  header{background:radial-gradient(120% 100% at 80% 0%,rgba(200,164,106,.26),transparent 55%),
+        linear-gradient(180deg,var(--navy),#081729 75%,#0A1B2F);color:var(--cream);padding:34px 0 40px}
+  h1{font-size:29px;margin:0;line-height:1.5}
+  h1 em{font-style:normal;color:var(--goldb)}
+  .sub{color:rgba(251,247,241,.72);font-size:15px;margin-top:12px;max-width:760px}
+  .toc{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+  .toc a{background:rgba(255,255,255,.07);border:1px solid rgba(200,164,106,.35);color:var(--goldb);
+        text-decoration:none;font-size:13.5px;padding:8px 14px;border-radius:999px}
+  section{padding:34px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:22px;margin:0 0 6px}
+  .lead{color:var(--soft);font-size:15px;margin:0 0 18px}
+  .grid{display:grid;gap:20px;grid-template-columns:1fr}
+  @media(min-width:900px){.grid.two{grid-template-columns:1fr 1fr}}
+  figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:14px}
+  figure img{width:100%;display:block;border-radius:12px;border:1px solid #EFEAE2}
+  figcaption{font-size:13.5px;color:var(--soft);margin-top:10px}
+  .note{background:#FFF9EE;border:1px dashed rgba(200,164,106,.5);border-radius:16px;padding:14px 16px;
+        font-size:14px;margin-top:16px}
+  .note b{color:#7A5210}
+  .phone{max-width:390px;margin:0 auto;background:#E9E9ED;border-radius:44px;padding:12px;
+         box-shadow:0 20px 60px rgba(5,16,33,.18)}
+  .phone .screen{background:#051021;border-radius:34px;overflow:hidden;height:720px}
+  .phone iframe{width:100%;height:100%;border:0;display:block}
+  .openbtn{display:inline-block;margin-top:14px;background:var(--navy);color:var(--goldb);text-decoration:none;
+           padding:11px 18px;border-radius:12px;font-size:14.5px;font-weight:600}
+  ol.req{list-style:none;counter-reset:r;padding:0;margin:0;display:grid;gap:12px}
+  ol.req li{counter-increment:r;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;
+            display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start}
+  ol.req li::before{content:counter(r);width:30px;height:30px;border-radius:50%;background:var(--navy);
+            color:var(--goldb);display:grid;place-items:center;font-size:14px;font-weight:700}
+  .tag{display:inline-block;font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:999px;margin-inline-start:8px;
+       vertical-align:middle}
+  .t-req{background:#FFEAEA;color:#9B1C1C}
+  .t-file{background:#EAF3FF;color:#1B4A86}
+  .t-opt{background:#EFF7EC;color:#2F6B25}
+  .t-later{background:#F1EEFF;color:#4B3AA6}
+  code{background:#F3F0EA;border-radius:6px;padding:2px 7px;font-size:13px;direction:ltr;display:inline-block}
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;font-size:14.5px}
+  th,td{padding:11px 13px;border-bottom:1px solid var(--line);text-align:right}
+  th{background:#F6F2EB;font-weight:600}
+  footer{background:var(--navy);color:rgba(251,247,241,.75);padding:26px 0 36px;font-size:14px}
+  footer b{color:var(--goldb)}
+  .tiny{font-size:12.5px;color:rgba(251,247,241,.5);margin-top:12px}
+</style>
+</head>
+<body>
+
+<div class="bar">پیش‌نمایش‌ها برای دریافت بازخورد شماست — هیچ QR، نشانی، نقل‌قول یا پرترهٔ تأییدنشده‌ای در آن‌ها نیست.</div>
+
+<header>
+  <div class="wrap">
+    <h1>کارت کتابخانهٔ نیمه‌شب <em>— پیش‌نمایش کامل پروژه</em></h1>
+    <p class="sub">این صفحه، دقیقاً همان چیزی است که تا امروز ساخته شده: «کارت چاپی» و «صفحهٔ دیجیتال». همهٔ جاهای خالی عمدی‌اند و برچسب دارند.</p>
+    <nav class="toc">
+      <a href="#card">۱ — کارت چاپی</a>
+      <a href="#digital">۲ — صفحهٔ دیجیتال</a>
+      <a href="#needs">۳ — چه چیزی برای تکمیل لازم است</a>
+      <a href="#files">۴ — فایل‌ها</a>
+    </nav>
+  </div>
+</header>
+
+<section id="card">
+  <div class="wrap">
+    <h2>۱ — کارت چاپی (A5 دوطرفه)</h2>
+    <p class="lead">این را چاپ می‌کنیم و در ایونت پخش می‌شود. سمت راست «شب/کتابخانه» است و سمت چپ «هفت شب + جای QR». روی تصویر کلیک کنید تا در اندازهٔ کامل باز شود.</p>
+    <div class="grid two">
+      <figure>
+        <a href="card/side-a.png" target="_blank"><img src="card/side-a.png" alt="سمت A — شب و کتابخانه"></a>
+        <figcaption><b>سمت A:</b> نشان، هوک «یک شب، تصمیم است؛ هفت شب، الگو.»، سه الگوی نورا، قفسه‌های کتابخانه، امضا و ریزخط اخلاقی.</figcaption>
+      </figure>
+      <figure>
+        <a href="card/side-b.png" target="_blank"><img src="card/side-b.png" alt="سمت B — هفت شب و جای QR"></a>
+        <figcaption><b>سمت B:</b> جدول هفت شب (یک کار، یک حال، یک واژه)، «قرار من: شب هفتم»، قاب خط‌چین QR، و نام برند.</figcaption>
+      </figure>
+    </div>
+    <div class="note"><b>جای‌های خالی این کارت:</b> قاب خط‌چین QR (نشانی تأییدنشده) · پرترهٔ شما (اجازه دریافت نشده) · نشان از فایل JPG موجود است، نه وکتور.</div>
+  </div>
+</section>
+
+<section id="digital">
+  <div class="wrap">
+    <h2>۲ — صفحهٔ دیجیتال (همان که QR به آن می‌رسد)</h2>
+    <p class="lead">این صفحه پایین، <b>واقعی و قابل لمس</b> است: صدای ۷ دقیقه‌ای را پخش کنید، اسکرول کنید، «هفت شب» را کلیک کنید. همان چیزی است که در سایت شما منتشر می‌شود.</p>
+    <div class="phone">
+      <div class="screen"><iframe src="mobile/index.html" title="پیش‌نمایش صفحهٔ دیجیتال" loading="lazy"></iframe></div>
+    </div>
+    <div style="text-align:center">
+      <a class="openbtn" href="mobile/index.html" target="_blank">باز کردن صفحه در یک تب جدا (برای موبایل)</a>
+    </div>
+    <div class="note"><b>جای‌های خالی این صفحه:</b> دکمهٔ «تمرین‌های طرحواره‌درمانی» غیرفعال است (مقصد تأییدنشده) · پرتره جای‌نگهدار · متن کامل صدا منتشر نشده (نیازمند تأیید شما).</div>
+  </div>
+</section>
+
+<section id="needs">
+  <div class="wrap">
+    <h2>۳ — برای تکمیل طراحی، دقیقاً این‌ها را لازم دارم</h2>
+    <p class="lead">هر مورد، برچسب دارد: <span class="tag t-req">باید</span> بدون آن نمی‌توانم نهایی کنم · <span class="tag t-file">فایل</span> فایل لازم است · <span class="tag t-opt">اختیاری</span> · <span class="tag t-later">بعدی</span>.</p>
+    <ol class="req">
+      <li><div><b>تأیید یا اصلاح جملهٔ هوک.</b><span class="tag t-req">باید</span>
+        <div style="color:var(--soft);font-size:14px;margin-top:6px">
+          ۱) «یک شب، تصمیم است؛ هفت شب، الگو.» (پیشنهاد من — از حرف خودتان) · ۲) «نورا فقط انتخاب‌هایش را عوض نکرد؛ او خودش را با خودش برد.» · ۳) «اگر جای نورا بودی، چه چیزی انتخابت را عوض می‌کرد؟» · ۴) متن خودتان.
+        </div></div></li>
+      <li><div><b>سه الگوی روی کارت را تأیید کنید:</b> شکست · نقص و شرم · اطاعت.<span class="tag t-req">باید</span>
+        <div style="color:var(--soft);font-size:14px;margin-top:6px">فقط همین سه در روایت شما مستند است؛ اگر می‌خواهید تغییر کند، بگویید کدام.</div></div></li>
+      <li><div><b>نام رسمی ایونت + تاریخ روی کارت.</b><span class="tag t-req">باید</span>
+        <div style="color:var(--soft);font-size:14px;margin-top:6px">مثال: «ایونت بررسی کتاب …» — و آیا «جلسهٔ ۰۱» بماند؟</div></div></li>
+      <li><div><b>تیراژ مورد نیاز.</b><span class="tag t-req">باید</span>
+        <div style="color:var(--soft);font-size:14px;margin-top:6px">چند نسخه؟ (۵۰ / ۱۰۰ / ۳۰۰ / بیشتر) — چاپ دیجیتال یا افست؟</div></div></li>
+      <li><div><b>لوگو و نشان — فایل وکتور.</b><span class="tag t-file">فایل</span>
+        <div style="color:var(--soft);font-size:14px;margin-top:6px">SVG یا EPS یا AI یا PNG با پس‌زمینهٔ شفاف و ضلع ≥ ۱۵۰۰ پیکسل. اگر وکتور نیست: من یک <b>نسخهٔ «نشان ساده»</b> بازسازی می‌کنم (بدون متن‌های ریز رینگ که در چاپ ناخوانا می‌شوند) و برای تأیید نشان می‌دهم.</div></div></li>
+      <li><div><b>اجازهٔ پرترهٔ شما.</b><span class="tag t-opt">اختیاری</span>
+        <div style="color:var(--soft);font-size:14px;margin-top:6px">اگر بدهید، عکس با کیفیت بالاتر (ضلع ≥ ۲۰۰۰ پیکسل) می‌خواهم. اگر نه، کارت با نشان و تیپوگرافی می‌ماند.</div></div></li>
+      <li><div><b>مقصد QR و ساخت لینک.</b><span class="tag t-req">باید</span>
+        <div style="color:var(--soft);font-size:14px;margin-top:6px">گزینه‌ها: (الف) نشانی کوتاه روی دامنهٔ خودتان که شما/برنامه‌نویس‌تان می‌سازد و من QR واقعی می‌سازم؛ (ب) نشانی صفحهٔ جدید در mirbolouki.com که همین حالا تعیین کنیم. تا تأیید نشود، هیچ QR و نشانی‌ای ساخته نمی‌شود.</div></div></li>
+      <li><div><b>انتشار صفحهٔ دیجیتال.</b><span class="tag t-req">باید</span>
+        <div style="color:var(--soft);font-size:14px;margin-top:6px">من بستهٔ آماده (HTML/CSS/JS + فونت + صدا) تحویل می‌دهم؛ چه کسی آن را روی mirbolouki.com می‌گذارد؟ (خودم نمی‌توانم بدون دسترسی شما منتشر کنم.)</div></div></li>
+      <li><div><b>تأیید متن کامل صدا (Transcript) برای انتشار.</b><span class="tag t-later">بعدی</span>
+        <div style="color:var(--soft);font-size:14px;margin-top:6px">پیش‌نویس ماشینی آماده است؛ اگر می‌خواهید در صفحه زیر صدا منتشر شود، اول با گوش خودتان اصلاح و تأیید کنید.</div></div></li>
+      <li><div><b>خطوط حمایتی در فوتر (۱۲۳ و ۱۴۸۰).</b><span class="tag t-req">باید</span>
+        <div style="color:var(--soft);font-size:14px;margin-top:6px">توصیهٔ جدی من: بماند — به‌دلیل موضوع کتاب. اگر مخالفید، بگویید حذف شود.</div></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="files">
+  <div class="wrap">
+    <h2>۴ — فایل‌های تولیدشده</h2>
+    <table>
+      <tr><th>مسیر</th><th>چیست</th></tr>
+      <tr><td><code>assets/print/print/side-a.pdf</code></td><td>کارت — سمت A، اندازهٔ واقعی A5 با بلید</td></tr>
+      <tr><td><code>assets/print/print/side-b.pdf</code></td><td>کارت — سمت B</td></tr>
+      <tr><td><code>assets/print/print/*-cmyk.tif</code></td><td>فایل CMYK چاپخانه</td></tr>
+      <tr><td><code>assets/print/generate_card.py</code></td><td>کد تولید کارت (متن‌ها و اندازه‌ها قابل تغییر)</td></tr>
+      <tr><td><code>assets/web/www/mobile/index.html</code></td><td>صفحهٔ دیجیتال (صفحه‌ای که همین‌جا می‌بینید)</td></tr>
+      <tr><td><code>assets/web/www/media/narration-7min.*</code></td><td>صدای بهینه‌شدهٔ ۷ دقیقه (Opus 2.3MB + MP3 3.5MB)</td></tr>
+      <tr><td><code>docs/01-pre-design-report.md</code></td><td>گزارش پیش از طراحی: یافته‌ها با منبع + مشخصات چاپ + استراتژی QR</td></tr>
+      <tr><td><code>docs/02-concept-and-journey.md</code></td><td>کانسپت «کارت کتابخانه + هفت شب» و مسیر کاربر</td></tr>
+      <tr><td><code>docs/narration-transcript-draft.md</code></td><td>پیش‌نویس ماشینی متن صدا</td></tr>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <b>یادآوری:</b> این صفحه فقط پیش‌نمایش است. اگر بگویید «چاپ فوری»، همین امشب نسخهٔ چاپ‌شدنی را با فرض‌های ثابت (نشان از JPG، بدون پرتره، بدون QR، بدون عدد سریال) نهایی می‌کنم تا فردا روی میز باشد.
+    <div class="tiny">۱۴۰۵ · همهٔ فایل‌ها بدون منبع بیرونی و قابل اجرا به‌صورت آفلاین</div>
+  </div>
+</footer>
+
+</body>
+</html>

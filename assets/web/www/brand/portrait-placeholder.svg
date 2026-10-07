@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1B30"/><stop offset="1" stop-color="#122745"/>
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="99" fill="url(#g)" stroke="#C8A46A" stroke-opacity=".45" stroke-width="2"/>
+  <circle cx="100" cy="78" r="26" fill="#C8A46A" fill-opacity=".28"/>
+  <path d="M44 158c8-27 28-40 56-40s48 13 56 40z" fill="#C8A46A" fill-opacity=".22"/>
+  <text x="100" y="188" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#E4C994" fill-opacity=".85">جای پرتره</text>
+</svg>
