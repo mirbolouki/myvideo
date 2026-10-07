@@ -49,8 +49,15 @@ class Board:
         self.d = ImageDraw.Draw(self.im)
         d = self.d
         d.rectangle((0, 0, W, 96), fill=NAVY)
-        T(d, (W - 44, 26), title, F('Bold', 40), (255, 255, 255), 'ra')
-        T(d, (40, 34), kicker, F('Medium', 26), (196, 172, 120), 'la')
+        # عنوان با اندازهٔ خودتنظیم تا هرگز با سرصفحه (kicker) تداخل نکند
+        fk = F('Medium', 26)
+        kick_w = fk.getlength(fa(kicker)) if kicker else 0
+        avail = W - 88 - kick_w - 40
+        ts = 40
+        while ts > 20 and F('Bold', ts).getlength(fa(title)) > avail:
+            ts -= 1
+        T(d, (W - 44, 24), title, F('Bold', ts), (255, 255, 255), 'ra')
+        T(d, (40, 34), kicker, fk, (196, 172, 120), 'la')
         T(d, (40, 66), f'۱۴ / {num}', F('Regular', 22), (150, 160, 175), 'la')
         if subtitle:
             T(d, (W - 44, 112), subtitle, F('Regular', 25), SOFT, 'ra')

@@ -1,0 +1,114 @@
+[
+ {
+  "crop": "ui-08-success-coverage",
+  "source": "report/30.jpg",
+  "w": 2490,
+  "h": 704,
+  "mm_w": 210.8,
+  "mm_h": 59.6
+ },
+ {
+  "crop": "ui-11-donut",
+  "source": "report/31.jpg",
+  "w": 2480,
+  "h": 1190,
+  "mm_w": 210.0,
+  "mm_h": 100.8
+ },
+ {
+  "crop": "ui-10-activity-bars",
+  "source": "report/37.jpg",
+  "w": 2470,
+  "h": 1428,
+  "mm_w": 209.1,
+  "mm_h": 120.9
+ },
+ {
+  "crop": "ui-07-reports-tabs",
+  "source": "report/30.jpg",
+  "w": 2416,
+  "h": 720,
+  "mm_w": 204.6,
+  "mm_h": 61.0
+ },
+ {
+  "crop": "ui-01-mood-wizard",
+  "source": "hal/3.jpg",
+  "w": 1876,
+  "h": 459,
+  "mm_w": 158.8,
+  "mm_h": 38.9
+ },
+ {
+  "crop": "ui-03-save-private",
+  "source": "hal/8.jpg",
+  "w": 1776,
+  "h": 762,
+  "mm_w": 150.4,
+  "mm_h": 64.5
+ },
+ {
+  "crop": "ui-02b-stress-slider",
+  "source": "hal/7.jpg",
+  "w": 1398,
+  "h": 396,
+  "mm_w": 118.4,
+  "mm_h": 33.5
+ },
+ {
+  "crop": "ui-02-steps-scale",
+  "source": "hal/6.jpg",
+  "w": 1385,
+  "h": 344,
+  "mm_w": 117.3,
+  "mm_h": 29.1
+ },
+ {
+  "crop": "ui-09-trend-chart",
+  "source": "report/32.jpg",
+  "w": 1284,
+  "h": 1038,
+  "mm_w": 108.7,
+  "mm_h": 87.9
+ },
+ {
+  "crop": "ui-12b-exercise-card",
+  "source": "report/28.jpg",
+  "w": 1048,
+  "h": 871,
+  "mm_w": 88.7,
+  "mm_h": 73.7
+ },
+ {
+  "crop": "ui-04-dashboard-top",
+  "source": "report/21.jpg",
+  "w": 1007,
+  "h": 508,
+  "mm_w": 85.3,
+  "mm_h": 43.0
+ },
+ {
+  "crop": "ui-06-today-steps",
+  "source": "report/21.jpg",
+  "w": 1007,
+  "h": 796,
+  "mm_w": 85.3,
+  "mm_h": 67.4
+ },
+ {
+  "crop": "ui-05-chicken",
+  "source": "report/21.jpg",
+  "w": 946,
+  "h": 796,
+  "mm_w": 80.1,
+  "mm_h": 67.4
+ },
+ {
+  "crop": "ui-12-quick-cards",
+  "source": "report/28.jpg",
+  "w": 912,
+  "h": 912,
+  "mm_w": 77.2,
+  "mm_h": 77.2
+ }
+]
