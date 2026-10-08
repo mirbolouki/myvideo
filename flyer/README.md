@@ -16,7 +16,7 @@
 | رنگ | CMYK — پروفایل خروجی **ISO Coated v2 (FOGRA39)، سقف مرکب 300%** |
 | حداکثر TAC اندازه‌گیری‌شده | 289% |
 | حاشیه امن | متن بدنه ≥ 10mm از خط برش؛ ریزمتن پا ≥ 9.5mm؛ کادر تزئینی 6mm |
-| فایل چاپ | `out/press/midnight_library_A5_flyer_press.pdf` — ۲ صفحه (MediBox = 436.56×612.24 pt) |
+| فایل چاپ | `out/press/midnight_library_A5_flyer_press_PDFX3.pdf` — **PDF/X-3:2002** با OutputIntentembed شده (ISO Coated v2) — ۲ صفحه، MediBox = 436.56×612.24 pt ؛ نسخهٔ معادل بدون X: `..._press.pdf` |
 | مسترهای CMYK | `out/press/sideA_cmyk_300dpi.tif` و `out/press/sideB_cmyk_300dpi.tif` |
 | پروف چاپی | `out/press/proof_sideA.png` و `proof_sideB.png` (خط صورتی=trim، فیروزه‌ای=safe) |
 
@@ -35,6 +35,8 @@
 - `typeset.py` — موتور تایپ‌ستینگ فارسی (HarfBuzz shaping، rasterization با FreeType، wrap با حفظ نیم‌فاصله، helperهای گرافیک برداری)
 - `side_a.py` / `side_b.py` — چیدمان دو رو با layout solver دومرحله‌ای (توزیع خودکار فضای تنفس)
 - `press.py` — تبدیل sRGB→CMYK با LittleCMS + پروفایل eci ISOcoated v2، ساخت PDF چاپ و proof
+- `pdfx.py` — افزودن انطباق PDF/X-3:2002 با incremental update استاندارد (embed پروفایل خروجی)
+- `qa_pdf.py` — راستی‌آزمایی فایل چاپ از بیرون: هندسه صفحه، رنگ‌فضا، و تمامیت پیکسلی صفحات CMYK نسبت به TIFF منبع (PASS)
 - `assets/` — آرت سینمایی کتابخانهٔ شب + ماسک جغد
 
 ## جای‌گذاری کد QR واقعی (روی B)
@@ -53,6 +55,8 @@
 /home/user/tools/venv/bin/python side_a.py     # رندر مستر 300dpi
 /home/user/tools/venv/bin/python press.py sideA sideB  # CMYK + PDF + proof
 /home/user/tools/venv/bin/python marks.py           # برگه‌های imposition + مختصات QR
+/home/user/tools/venv/bin/python pdfx.py            # نسخهٔ PDF/X-3
+/home/user/tools/venv/bin/python qa_pdf.py out/press/midnight_library_A5_flyer_press_PDFX3.pdf
 ```
 فونت‌ها: `/home/user/tools/fonts/ttf` (Vazirmatn، از github.com/rastikerdar/vazirmatn)
 پروفایل‌ها: `/home/user/tools/icc/` (sRGB v4 + ISOcoated_v2_300_eci)
