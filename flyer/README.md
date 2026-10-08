@@ -37,10 +37,22 @@
 - `press.py` — تبدیل sRGB→CMYK با LittleCMS + پروفایل eci ISOcoated v2، ساخت PDF چاپ و proof
 - `assets/` — آرت سینمایی کتابخانهٔ شب + ماسک جغد
 
+## جای‌گذاری کد QR واقعی (روی B)
+مختصات دقیق مربع QR در `out/sideB_300dpi.png` (پیکسل @300dpi، مبنا لبهٔ bleed):
+`x = 201..555 , y = 1905..2259` (354×354px = 30×30mm) — از لبهٔ برش: x 14..44mm ، y 158.3..188.3mm.
+فایل راهنما: `out/press/QR_SWAP_IN.txt`. کافی است تصویر QR (ترجیحاً PNG تک‌رنگ با حاشیهٔ سفید ≥2mm)
+دقیقاً در همین مربع paste شود؛ هیچ عنصر دیگری جابه‌جا نمی‌شود.
+
+## برگه‌های راهنمای چاپخانه
+- `out/press/imposition_A4_guide.pdf` (دو برگ A4: هر رو وسط صفحه + crop marks گوشه‌ها + job ticket)
+- این برگه‌ها فقط راهنمای برش/کنترل‌اند؛ فایل چاپ همان PDF دوصفحه‌ای با bleed است.
+- متادیتای PDF چاپ: عنوان/نویسنده/پروفایل رنگ ست شده است.
+
 ## بازتولید
 ```bash
 /home/user/tools/venv/bin/python side_a.py     # رندر مستر 300dpi
-/home/user/tools/venv/bin/python press.py sideA  # CMYK + PDF + proof
+/home/user/tools/venv/bin/python press.py sideA sideB  # CMYK + PDF + proof
+/home/user/tools/venv/bin/python marks.py           # برگه‌های imposition + مختصات QR
 ```
 فونت‌ها: `/home/user/tools/fonts/ttf` (Vazirmatn، از github.com/rastikerdar/vazirmatn)
 پروفایل‌ها: `/home/user/tools/icc/` (sRGB v4 + ISOcoated_v2_300_eci)

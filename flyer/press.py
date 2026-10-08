@@ -45,5 +45,8 @@ for s in sides:
 
 pdf = "out/press/midnight_library_A5_flyer_press.pdf"
 imgs = [c for _, c in tiffs]
-imgs[0].save(pdf, resolution=300.0, save_all=True, append_images=imgs[1:])
+imgs[0].save(pdf, resolution=300.0, save_all=True, append_images=imgs[1:],
+         title="Midnight Library A5 Flyer - Press File (CMYK, bleed 3mm)",
+         author="Javad Mirbolouki / JOMA Studio", subject="A5 double-sided flyer, ISO Coated v2",
+         creator="Arena print pipeline (HarfBuzz Persian typesetting)", producer="Pillow/LittleCMS")
 print("press pdf:", pdf, os.path.getsize(pdf), "bytes, pages:", len(imgs))
