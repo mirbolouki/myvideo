@@ -1,0 +1,5 @@
+__pycache__/
+out/smoke.png
+out/order.png
+out/qc_*.png
+out/press/sideA_cmyk_roundtrip.png
