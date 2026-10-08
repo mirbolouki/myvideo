@@ -229,29 +229,26 @@ def circle(canvas, cx, cy, r, color, alpha=1.0, ring=0.0, ring_color=None):
     canvas[y0:y1, x0:x1, :3] = reg * (1 - a3) + col * a3
 
 
-def rounded_rect(canvas, x0, y0, x1, y1, r, color, alpha=1.0, border=0.0, border_color=None):
+def rounded_rect(canvas, x0, y0, x1, y1, r, color, alpha=1.0, border=0.0,
+                 border_color=None, border_alpha=None):
+    """Proper signed-distance rounded rectangle fill + edge border."""
     x0, y0, x1, y1 = float(x0), float(y0), float(x1), float(y1)
-    ix0, iy0, ix1, iy1 = int(x0), int(y0), int(x1 + 1), int(y1 + 1)
-    ix0, iy0 = max(0, ix0), max(0, iy0)
-    ix1, iy1 = min(canvas.shape[1], ix1), min(canvas.shape[0], iy1)
+    ix0, iy0 = max(0, int(x0) - 2), max(0, int(y0) - 2)
+    ix1, iy1 = min(canvas.shape[1], int(x1) + 3), min(canvas.shape[0], int(y1) + 3)
     yy, xx = np.mgrid[iy0:iy1, ix0:ix1]
-    dx = np.maximum(np.maximum(x0 + r - xx, xx - (x1 - r)), 0)
-    dy = np.maximum(np.maximum(y0 + r - yy, yy - (y1 - r)), 0)
-    d = np.sqrt(dx ** 2 + dy ** 2)
-    inside = ((xx >= x0 + r) & (xx <= x1 - r)) | ((yy >= y0 + r) & (yy <= y1 - r))
-    mask = np.where(inside, 0.0, d - r)
-    a = np.clip(0.5 - mask, 0, 1) * alpha
+    cx, cy = (x0 + x1) / 2.0, (y0 + y1) / 2.0
+    qx = np.abs(xx - cx) - (x1 - x0) / 2.0 + r
+    qy = np.abs(yy - cy) - (y1 - y0) / 2.0 + r
+    d = np.sqrt(np.maximum(qx, 0) ** 2 + np.maximum(qy, 0) ** 2) + np.minimum(np.maximum(qx, qy), 0) - r
+    a = np.clip(0.5 - d, 0, 1) * alpha
     col = np.array(color[:3], dtype=np.float64)
-    a3 = a[:, :, None]
-    reg = canvas[ix0:iy1, ix0 if False else ix0:ix1, :3]  # placeholder replaced below
     reg = canvas[iy0:iy1, ix0:ix1, :3]
-    out = reg * (1 - a3) + col * a3
+    out = reg * (1 - a[:, :, None]) + col * a[:, :, None]
     if border > 0 and border_color is not None:
+        ba = alpha if border_alpha is None else border_alpha
         bc = np.array(border_color[:3], dtype=np.float64)
-        edge = np.abs(mask)
-        ab = np.clip((border / 2.0 + 0.5) - edge, 0, 1) * alpha
-        ab3 = ab[:, :, None]
-        out = out * (1 - ab3) + bc * ab3
+        ab = np.clip((border / 2.0 + 0.5) - np.abs(d), 0, 1) * ba
+        out = out * (1 - ab[:, :, None]) + bc * ab[:, :, None]
     canvas[iy0:iy1, ix0:ix1, :3] = out
 
 

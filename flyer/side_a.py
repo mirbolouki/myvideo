@@ -212,7 +212,7 @@ for i, (name, quote) in enumerate(CARDS):
     x1 = M_L + (2 - i) * (COLW + CARD_GAP)
     x0 = x1 + COLW
     T.rounded_rect(canvas, MX(x1), MY(cy0), MX(x0), MY(cy0 + ch), T.mm(2.0),
-                   CREAM, 0.05, border=max(1, T.mm(0.28)), border_color=GOLD)
+                   CREAM, 0.05, border=max(1, T.mm(0.28)), border_color=GOLD, border_alpha=0.5)
     T.hline(canvas, MX(x1 + CARD_PAD), MX(x0 - CARD_PAD), MY(cy0 + 3.0), GOLD, max(1, T.mm(0.3)), 0.55)
     f_bold.draw(canvas, name, T.pt(S_CNAME), MX(x0 - CARD_PAD), MY(cy0 + 7.4), GOLD_HI, "rtl")
     T.paragraph(canvas, f_reg, quote, T.pt(S_CQUOTE), CREAM_DIM, MX(x0 - CARD_PAD), MY(cy0 + 9.6),
